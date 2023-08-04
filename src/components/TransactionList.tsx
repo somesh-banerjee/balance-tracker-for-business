@@ -1,7 +1,9 @@
+import { useNavigate } from 'react-router-dom';
 import { useGameContext } from '../utils/Context';
 
 export const TransactionList: React.FC = () => {
   const { transactions } = useGameContext();
+  const navigate = useNavigate();
 
   let sortedTransactions = transactions.sort((a, b) => {
     return Number(b.id) - Number(a.id);
@@ -11,7 +13,17 @@ export const TransactionList: React.FC = () => {
 
   return (
     <div className="my-4">
-      <h2 className="text-xl font-bold mb-2">Last Few Transactions</h2>
+      <h2 className="text-xl font-bold mb-2">
+        Last Few Transactions
+        <span
+          className="mx-2 text-xs font-normal text-center hover:underline cursor-pointer"
+          onClick={() => {
+            navigate('/txs');
+          }}
+        >
+          Show all
+        </span>
+      </h2>
       <div className="w-full overflow-x-auto">
         <table className="w-full table-auto border-collapse border border-gray-300">
           <thead>
