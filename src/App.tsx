@@ -25,7 +25,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/txs" element={<FullTransactionList />} />
-          <Route path="/clr" element={<ClearStorage />} />
+          <Route path="/clear" element={<ClearStorage />} />
           <Route path="/rules" element={<Rules />} />
         </Routes>
       </BrowserRouter>
