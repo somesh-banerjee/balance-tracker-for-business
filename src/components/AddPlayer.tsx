@@ -1,6 +1,7 @@
 import { useRef } from 'react';
 import { useGameContext } from '../utils/Context';
 import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 export const AddPlayer: React.FC = () => {
   const newPlayer = useRef<HTMLInputElement>(null);
@@ -43,12 +44,14 @@ export const AddPlayer: React.FC = () => {
 
 export const ClearStorage: React.FC = () => {
   const { updateGameState } = useGameContext();
+  const navigate = useNavigate();
 
   const handleClick = () => {
     updateGameState({
       players: [],
       transactions: [],
     });
+    navigate('/');
   };
 
   return (
