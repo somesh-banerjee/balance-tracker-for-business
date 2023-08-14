@@ -65,6 +65,7 @@ export const TransactionList: React.FC = () => {
 
 export const FullTransactionList: React.FC = () => {
   const { transactions } = useGameContext();
+  const navigate = useNavigate();
 
   let sortedTransactions = transactions.sort((a, b) => {
     return Number(b.id) - Number(a.id);
@@ -73,7 +74,15 @@ export const FullTransactionList: React.FC = () => {
   return (
     <div className="bg-gray-100 flex items-center justify-center h-screen">
       <div className="bg-white rounded-lg p-8 shadow-md w-84">
-        <h1 className="text-2xl font-bold text-center mb-4">Balance Tracker</h1>
+        <h1 className="text-2xl font-bold text-center">Balance Tracker</h1>
+        <h5
+          className="text-xs text-center hover:underline cursor-pointer mb-4"
+          onClick={() => {
+            navigate('/');
+          }}
+        >
+          Home
+        </h5>
         <div className="my-4">
           <h2 className="text-xl font-bold mb-2">All Transactions</h2>
           <div className="w-full overflow-x-auto">

@@ -1,6 +1,18 @@
+import { useNavigate } from 'react-router-dom';
+
 const Rules: React.FC = () => {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-gray-100 flex flex-col items-center justify-center">
+      <h5
+        className="text-xs text-center hover:underline cursor-pointer mb-4"
+        onClick={() => {
+          navigate('/');
+        }}
+      >
+        Home
+      </h5>
       <div className="rounded-md shadow-md mb-4">
         <img src="/rules.jpg" alt="rules" className="rounded-md" />
       </div>

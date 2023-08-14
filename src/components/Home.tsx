@@ -1,3 +1,4 @@
+import { useGameContext } from '../utils/Context';
 import { AddPlayer } from './AddPlayer';
 import { PlayerList } from './PlayerList';
 import { TransactionForm } from './TransactionForm';
@@ -6,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 
 const Home: React.FC = () => {
   const navigate = useNavigate();
+  const { updateGameState } = useGameContext();
 
   return (
     <div className="bg-gray-100 flex items-center justify-center h-screen">
@@ -23,7 +25,11 @@ const Home: React.FC = () => {
           <h5
             className="text-xs text-center hover:underline cursor-pointer mx-4"
             onClick={() => {
-              navigate('/clear');
+              confirm('Are you sure you want to clear the game state?') &&
+                updateGameState({
+                  players: [],
+                  transactions: [],
+                });
             }}
           >
             Clear

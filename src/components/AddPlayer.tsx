@@ -41,31 +41,3 @@ export const AddPlayer: React.FC = () => {
     </>
   );
 };
-
-export const ClearStorage: React.FC = () => {
-  const { updateGameState } = useGameContext();
-  const navigate = useNavigate();
-
-  const handleClick = () => {
-    updateGameState({
-      players: [],
-      transactions: [],
-    });
-    navigate('/');
-  };
-
-  return (
-    <>
-      <div className="bg-gray-100 flex items-center justify-center h-screen">
-        <div className="bg-white rounded-lg p-8 shadow-md w-84">
-          <button
-            className="px-4 py-1 bg-red-500 text-white rounded-r-md"
-            onClick={handleClick}
-          >
-            Clear Storage
-          </button>
-        </div>
-      </div>
-    </>
-  );
-};
